@@ -1,20 +1,5 @@
 /**index.wxss**/
-.search {
-  background-color: #ff2d4a;
-  padding: 15rpx;
-}
-.search navigator {
-  height: 60rpx;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color:#999;
-  border-radius: 10rpx;
-}
-.search icon {
-  margin-right:20rpx; 
-}
+
 swiper {
   width: 750rpx;
   height: 340rpx;

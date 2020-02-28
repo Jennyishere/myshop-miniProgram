@@ -1,12 +1,7 @@
-<!--index.wxml-->
+
 <view class="container">
   <!-- 头部搜索框 -->
-  <view class="search">
-    <navigator url="/pages/Search/index">
-      <icon type="search"></icon>
-      搜索
-    </navigator>
-  </view>
+  <searchInput></searchInput>
   <!-- 轮播图 -->
   <swiper indicator-dots interval duration circular>
     <block wx:for="{{banners}}" wx:key="*this">

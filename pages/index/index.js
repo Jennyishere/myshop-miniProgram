@@ -5,7 +5,7 @@ Page({
     banners: [],
     navs: [],
     floorData: [],
-    backToTop:false
+    backToTop: false
   },
   onLoad: function() {
     // 请求轮播图
@@ -62,12 +62,14 @@ Page({
   },
   // 滚到指定位置显示回到顶部
   onPageScroll(e) {
-    const { scrollTop } = e;
+    const {
+      scrollTop
+    } = e;
     let isShow;
-    if (scrollTop>100) {
+    if (scrollTop > 100) {
       isShow = true;
-    }else {
-      isShow=false;
+    } else {
+      isShow = false;
     }
     if (this.data.backToTop == isShow) return;
     this.setData({
