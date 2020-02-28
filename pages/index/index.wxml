@@ -1,4 +1,25 @@
 <!--index.wxml-->
 <view class="container">
-首页
+  <!-- 头部搜索框 -->
+  <view class="search">
+    <navigator url="/pages/Search/index">
+      <icon type="search"></icon>
+      搜索
+    </navigator>
+  </view>
+  <!-- 轮播图 -->
+  <swiper indicator-dots interval duration circular>
+    <block wx:for="{{banners}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item.image_src}}" mode="widthFix"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 导航栏 -->
+  <view class="navs">
+    <navigator wx:for="{{navs}}" wx:key="index" url="{{item.url}}" open-type="{{item.open_type}}">
+      <image src="{{item.image_src}}" mode="widthFix"></image>
+    </navigator>
+  </view>
 </view>
