@@ -22,4 +22,21 @@
       <image src="{{item.image_src}}" mode="widthFix"></image>
     </navigator>
   </view>
+  <!-- 楼层 -->
+  <view class="floor" wx:for="{{floorData}}" wx:key="index">
+    <view class="floor_head">
+      <image mode="widthFix" src="{{item.floor_title.image_src}}"></image>
+    </view>
+    <view class="floor_content">
+      <view class="content_left">
+        <image style="width: 100%;" mode="widthFix" src="{{item.product_list[0].image_src}}"></image>
+      </view>
+      <view class="content_right">
+      <!-- 二层循环用block栏起来 -->
+        <block wx:for="{{item.product_list}}" wx:if="{{index>0}}" wx:key="index">
+          <image mode="widthFix" src="{{item.image_src}}"></image>
+        </block>
+      </view>
+    </view>
+  </view>
 </view>

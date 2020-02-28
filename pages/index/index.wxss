@@ -30,3 +30,35 @@ swiper image {
 .navs image {
   width: 180rpx;
 }
+.floor {
+  padding: 15rpx;
+}
+.floor_head image {
+  width:750rpx;
+  height:60rpx;
+}
+.floor_content {
+  display: flex;
+}
+.content_left {
+  width: 232rpx;
+  margin-right: 10rpx;
+}
+.content_left image {
+  width: 100%;
+}
+.content_right {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.content_right image {
+  width: 233rpx;
+}
+.floor +.floor .content_right image {
+  width: 193rpx;
+}
+.floor +.floor .content_right image:nth-child(3n+1) {
+  width: 273rpx;
+}
