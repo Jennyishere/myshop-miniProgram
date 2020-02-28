@@ -39,4 +39,11 @@
       </view>
     </view>
   </view>
+  <view class="bottom">
+    <view>我是有底线的~~</view>
+    <view class="backToTop" bindtap="backToTop" wx:if="{{backToTop}}">
+      <view class="iconfont icon-shang-copy"></view>
+      顶部
+    </view>
+  </view>
 </view>
