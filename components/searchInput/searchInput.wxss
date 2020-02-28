@@ -2,6 +2,7 @@
 .search {
   background-color: #ff2d4a;
   padding: 15rpx;
+  font-size: 12px;
 }
 .search navigator {
   height: 60rpx;
@@ -13,5 +14,5 @@
   border-radius: 10rpx;
 }
 .search icon {
-  margin-right:20rpx; 
+  margin-right:14px; 
 }

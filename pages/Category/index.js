@@ -1,3 +1,4 @@
+import request from '../../utils/request'
 // pages/Category/index.js
 Page({
 
@@ -5,14 +6,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    leftCateList: [],
+    rightCateList: [],
+    cates: [],
+    currentIndex: 0
   },
-
+  // 处理点击事件
+  handleTap(e) {
+    const { index } = e.currentTarget.dataset;
+    // 右边的数据跟着更新
+    let rightCateList = this.data.cates[index].children
+    this.setData({
+      currentIndex: index,
+      rightCateList
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    request({
+      url: "/categories"
+    }).then(res => {
+      console.log(res);
+      const { message } = res.data
+      let leftCateList = message.map(v => v.cat_name) //放在一行 可以把return省略
+      let rightCateList = message[0].children
+      this.setData({
+        cates: message,
+        leftCateList,
+        rightCateList
+      })
+      console.log(this.data.cates);
 
+    })
   },
 
   /**

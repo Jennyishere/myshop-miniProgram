@@ -1,2 +1,21 @@
 <!--pages/Category/index.wxml-->
-<text>pages/Category/index.wxml</text>
+<view class="category">
+	<searchInput></searchInput>
+	<view class="cate">
+		<scroll-view class="leftcate" scroll-y>
+			<view wx:for="{{leftCateList}}" wx:key="index" class="menu {{currentIndex==index? 'active':''}}" bindtap="handleTap" data-index="{{index}}">{{item}}</view>
+		</scroll-view>
+		<scroll-view class="rightcate" scroll-y>
+			<view wx:for="{{rightCateList}}">
+				<view class="head">{{item.cat_name}}</view>
+				<view class="brand">
+					<view class="subtitle" wx:for="{{item.children}}" wx:for-item="item2" wx:key="index">
+						<image src="{{item2.cat_icon}}" mode="widthFix"></image>
+						<view>{{item2.cat_name}}</view>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+
+	</view>
+</view>
