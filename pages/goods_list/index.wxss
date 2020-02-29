@@ -1,1 +1,40 @@
 /* pages/goods_list/index.wxss */
+.sum {
+ border-bottom: 1px solid #ccc;
+}
+.sum>navigator {
+ display: flex;
+ padding: 15rpx 20rpx;
+}
+
+.left {
+ flex: 1;
+ margin-right: 20rpx;
+
+}
+
+.left image {
+ width: 100%;
+}
+
+.right {
+ flex: 2;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ color: #333;
+}
+.good_price {
+ font-size: 20px;
+ color: #ff4862;
+}
+.good_name {
+ /* 省略号 */
+ display: -webkit-box;
+ overflow: hidden;
+ -webkit-line-clamp: 2;
+ -webkit-box-orient: vertical;
+}
+.good_price text{
+ font-size: 14px;
+}

@@ -1,1 +1,6 @@
-@import "./styles/icon.wxss"
+@import "./styles/icon.wxss";
+page{
+ --themeColor: #ff2d4a;
+ /* 假设涉及稿是375 1px = 2rgx */
+ font-size:28rpx;
+ }

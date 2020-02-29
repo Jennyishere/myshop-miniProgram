@@ -1,0 +1,11 @@
+<!--components/Tabs/tabs.wxml-->
+<view class="tabs">
+	<view class="title">
+		<view class="tabs_item {{item.isActive? 'active' : ''}}" wx:for="{{tabs}}" wx:key="index"
+  bindtap="handleItemTap" data-index="{{index}}">{{item.value}}</view>
+	</view>
+	<view class="content">
+ <!-- 加上插槽使其内容可以变化 -->
+ <slot></slot>
+ </view>
+</view>
