@@ -19,6 +19,7 @@ page {
 }
 
 .menu {
+    position: relative;
     padding: 20rpx;
     margin: 10rpx 0;
     font-size: 13px;
@@ -27,7 +28,18 @@ page {
 
 .active {
     background-color: #fff;
-    border-left: 4px solid red;
+}
+
+.active::before {
+    display: block;
+    content: "";
+    width: 4px;
+    height: 20px;
+    background-color: #ff2d4a;
+    position: absolute;
+    left: 0;
+    top:50%;
+    transform:translateY(-50%);
 }
 
 .rightcate {

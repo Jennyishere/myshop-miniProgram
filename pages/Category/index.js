@@ -21,15 +21,15 @@ Page({
       rightCateList
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  // 获取数据
+  getData() {
     request({
       url: "/categories"
     }).then(res => {
       console.log(res);
       const { message } = res.data
+      // 将获取的数据存到本地
+      wx.setStorageSync('cates', { time: Date.now(), data: message })
       let leftCateList = message.map(v => v.cat_name) //放在一行 可以把return省略
       let rightCateList = message[0].children
       this.setData({
@@ -37,9 +37,34 @@ Page({
         leftCateList,
         rightCateList
       })
-      console.log(this.data.cates);
 
     })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    // 1先判断本地储存里是否有数据
+    // 2没有数据直接发请求
+    // 3有数据，判断是否过期，过期重新请求，没过期拿出来使用
+    const Cates = wx.getStorageSync("cates")
+    if (!Cates) {
+      this.getData()
+    } else {
+      // 如果过期
+      if (Date.now() - Cates.time > 1000 * 10) {
+        this.getData()
+      } else {
+        console.log("可以使用本地数据");
+        let leftCateList = Cates.data.map(v => v.cat_name) //放在一行 可以把return省略
+        let rightCateList = Cates.data[0].children
+        this.setData({
+          cates: Cates,
+          leftCateList,
+          rightCateList
+        })
+      }
+    }
   },
 
   /**

@@ -6,8 +6,8 @@
 			<view wx:for="{{leftCateList}}" wx:key="index" class="menu {{currentIndex==index? 'active':''}}" bindtap="handleTap" data-index="{{index}}">{{item}}</view>
 		</scroll-view>
 		<scroll-view class="rightcate" scroll-y>
-			<view wx:for="{{rightCateList}}">
-				<view class="head">{{item.cat_name}}</view>
+			<view wx:for="{{rightCateList}}" wx:key="index">
+				<view class="head">/ {{item.cat_name}} /</view>
 				<view class="brand">
 					<view class="subtitle" wx:for="{{item.children}}" wx:for-item="item2" wx:key="index">
 						<image src="{{item2.cat_icon}}" mode="widthFix"></image>
