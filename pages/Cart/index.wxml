@@ -2,7 +2,12 @@
 <view class="cart">
 	<!-- 添加地址 -->
 	<view class="addAddress">
-		<button type="primary" plain>添加收货地址</button>
+		<button type="primary" plain bindtap="handleChooseAddress" wx:if="{{!address.userName}}">添加收货地址</button>
+		<view wx:else class="address">
+			<view class="receiver"><text>收货人： {{address.userName}}</text>
+				<text>{{address.telNumber}}</text></view>
+			<view>收货地址： {{address.all}}</view>
+		</view>
 	</view>
 	<view class="shopCart">
 		<view class="title">购物车</view>

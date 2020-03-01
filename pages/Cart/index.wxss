@@ -5,8 +5,17 @@
 
 .addAddress {
  padding: 20rpx;
-}
 
+}
+.address {
+ border-bottom: 5rpx dashed var(--themeColor);
+ padding-bottom: 30rpx;
+}
+.address .receiver{
+display: flex;
+padding: 20rpx 0;
+justify-content: space-between;
+}
 .title {
  padding: 20rpx;
  font-size: 18px;
