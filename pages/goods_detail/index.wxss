@@ -53,5 +53,44 @@ border-right: 1px solid #ccc;
 }
 .detailsInfo {
  margin-top: 30rpx;
+ margin-bottom: 90rpx;
  background-color: #fff;
+}
+.bottomTool {
+ position: fixed;
+ bottom: 0;
+ left:0;
+ background-color: #fff;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ width: 100vw;
+ height: 90rpx;
+}
+.serve, .cart {
+ flex: 2;
+ font-size: 12px;
+ color:#666;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.bottomTool .iconfont {
+font-size: 22px;
+}
+.addCart , .buyNow{
+ flex:3;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 15px;
+ color:#fff;
+ width: 100%;
+height: 100%;
+}
+.addCart {
+ background-color: #ffb517;
+}
+.buyNow {
+ background-color: #ff2d4a;
 }

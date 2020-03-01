@@ -1,16 +1,18 @@
 <!--pages/goods_detail/index.wxml-->
 <view class="details">
+	<!-- 图片轮播图 -->
 	<view class="picture">
 		<swiper indicator-dots autoplayinterval duration>
 			<block wx:for="{{goodDetails.pics}}" wx:key="*this">
 				<swiper-item>
-					<view class="swiper-item">
+					<view class="swiper-item" bindtap="handlePreviewImg" data-index="{{index}}">
 						<image src="{{item.pics_mid}}" mode="widthFix"></image>
 					</view>
 				</swiper-item>
 			</block>
 		</swiper>
 	</view>
+	<!-- 价格标题信息 -->
 	<view class="info">
 		<view class="price"><text>￥</text>{{goodDetails.goods_price}}</view>
 		<view class="title">
@@ -24,10 +26,24 @@
 			快递： 免运费
 		</view>
 	</view>
+	<!-- 详情 -->
 	<view class="detailsInfo">
 		<view class="infoTitle">图文详情</view>
 		<view class="content">
-   <rich-text nodes="{{goodDetails.goods_introduce}}"></rich-text>
-  </view>
+			<rich-text nodes="{{goodDetails.goods_introduce}}"></rich-text>
+		</view>
+	</view>
+	<!-- 底部工具栏 -->
+	<view class="bottomTool">
+		<view class="serve">
+			<view class="iconfont icon-icon-test"></view>
+			<view>l联系客服</view>
+		</view>
+		<view class="cart">
+			<view class="iconfont icon-gouwuche"></view>
+			<view>购物车</view>
+		</view>
+		<view class="addCart">加入购物车</view>
+		<view class="buyNow">立即购买</view>
 	</view>
 </view>
