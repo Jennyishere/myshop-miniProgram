@@ -44,7 +44,7 @@ Page({
     request({
       url: '/home/floordata'
     }).then(res => {
-      console.log(res)
+      // console.log(res)
       const {
         message
       } = res.data;

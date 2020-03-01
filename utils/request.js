@@ -29,11 +29,18 @@
  * 参数 | 类型 | 默认值
  * config | Oject | {}
  */
+// 如果有多个请求
+let ajaxTimes = 0;
 const request = (config = {}) => {
-
+    ajaxTimes++;
+    // 发送请求的时候显示加载中
+    wx.showLoading({
+        title: '加载中',
+        mask: true
+    })
     // 如果url开头没有http，加上基准路径
     // 字符串正则方法search https://www.runoob.com/jsref/jsref-search.html
-    if(config.url.search(/^http/) === -1){
+    if (config.url.search(/^http/) === -1) {
         // 给链接添加url，加上基准路径
         config.url = request.defaults.baseURL + config.url;
     }
@@ -45,14 +52,17 @@ const request = (config = {}) => {
         // 发起请求
         wx.request({
             ...config,
-            success(res){
+            success(res) {
                 resolve(res);
             },
-            fail(res){
+            fail(res) {
                 reject(res);
             },
             // 不管成功失败都会执行
-            complete(res){
+            complete(res) {
+                ajaxTimes--;
+                // 不管成功或失败都收起加载中的提示
+                if(ajaxTimes==0){ wx.hideLoading();}
                 // 执行错误的兰截器
                 request.errors(res);
             }
@@ -71,7 +81,7 @@ request.defaults = {
 /**
  * 存储错误的回调函数.默认是一个空的函数
  */
-request.errors = () => {}
+request.errors = () => { }
 
 /**
  * request的错误拦截
@@ -81,7 +91,7 @@ request.errors = () => {}
  */
 request.onError = (callback) => {
     // 判断callback必须是一个函数
-    if(typeof callback === "function"){
+    if (typeof callback === "function") {
         // 如果是函数，保存到errors
         request.errors = callback
     }

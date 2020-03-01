@@ -85,11 +85,26 @@ Page({
         title: '没有下一页数据了'
       })
     } else {
-      console.log("还有了");
       this.queryParams.pagenum++;
       this.getGoodsList();
     }
-
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   * 1 触发下拉事件
+   * 2 重置数据数组
+   * 3 重置页码为1  发送请求重新请求数据
+   */
+  onPullDownRefresh: function () {
+// 重置
+this.setData({
+  goodList:[]
+})
+this.queryParams.pagenum = 1;
+// 再次请求
+this.getGoodsList()
+// 加载完收起
+wx.stopPullDownRefresh()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -119,12 +134,7 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
+  
 
 
 

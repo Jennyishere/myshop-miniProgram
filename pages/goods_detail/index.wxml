@@ -1,2 +1,33 @@
 <!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<view class="details">
+	<view class="picture">
+		<swiper indicator-dots autoplayinterval duration>
+			<block wx:for="{{goodDetails.pics}}" wx:key="*this">
+				<swiper-item>
+					<view class="swiper-item">
+						<image src="{{item.pics_mid}}" mode="widthFix"></image>
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class="info">
+		<view class="price"><text>￥</text>{{goodDetails.goods_price}}</view>
+		<view class="title">
+			<view class="name">{{goodDetails.goods_name}}</view>
+			<view class="star">
+				<view class="iconfont icon-shoucang"></view>
+				<view>收藏</view>
+			</view>
+		</view>
+		<view class="kuaidi">
+			快递： 免运费
+		</view>
+	</view>
+	<view class="detailsInfo">
+		<view class="infoTitle">图文详情</view>
+		<view class="content">
+   <rich-text nodes="{{goodDetails.goods_introduce}}"></rich-text>
+  </view>
+	</view>
+</view>
