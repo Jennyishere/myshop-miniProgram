@@ -6,7 +6,7 @@
 	<tabs tabs="{{tabs}}" bindtabItemChange="hadletabItemChange">
 		<block wx:if="{{tabs[0].isActive}}">
 			<view class="sum">
-				<navigator wx:for="{{goodList.goods}}" wx:key="index">
+				<navigator wx:for="{{goodList}}" wx:key="index">
 					<view class="left">
 						<image mode="widthFix" src="{{item.goods_small_logo?item.goods_small_logo:'https://images.pexels.com/photos/1553962/pexels-photo-1553962.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}"></image>
 					</view>
