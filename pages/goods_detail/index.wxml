@@ -37,13 +37,19 @@
 	<view class="bottomTool">
 		<view class="serve">
 			<view class="iconfont icon-icon-test"></view>
-			<view>l联系客服</view>
+			<view>联系客服</view>
+			<button open-type="contact" class="btn" size="mini">联系</button>
 		</view>
-		<view class="cart">
+		<view class="share">
+			<view class="iconfont icon-dakaihuihua"></view>
+			<view>分享</view>
+			<button open-type="share" size="mini">分享</button>
+		</view>
+		<navigator class="cart" url="/pages/Cart/index" open-type="switchTab">
 			<view class="iconfont icon-gouwuche"></view>
 			<view>购物车</view>
-		</view>
-		<view class="addCart">加入购物车</view>
+		</navigator>
+		<view class="addCart" bindtap="addCart">加入购物车</view>
 		<view class="buyNow">立即购买</view>
 	</view>
 </view>
