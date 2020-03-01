@@ -1,1 +1,110 @@
 /* pages/Cart/index.wxss */
+.cart {
+ position: relative;
+}
+
+.addAddress {
+ padding: 20rpx;
+}
+
+.title {
+ padding: 20rpx;
+ font-size: 18px;
+}
+
+.goodsList {
+ display: flex;
+ padding: 20rpx 20rpx;
+ align-items: center;
+ border-bottom: solid 1rpx #eee;
+}
+
+.left {
+ flex: 1;
+ margin-right: 20rpx;
+
+}
+
+.left image {
+ width: 90%;
+}
+
+.right {
+ flex: 2;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ color: #333;
+}
+
+.good_price {
+ font-size: 20px;
+ color: #ff4862;
+ flex: 1;
+}
+
+.good_name {
+ /* 省略号 */
+ display: -webkit-box;
+ overflow: hidden;
+ -webkit-line-clamp: 2;
+ -webkit-box-orient: vertical;
+}
+
+.good_price text {
+ font-size: 14px;
+}
+
+.bottom {
+ display: flex;
+ justify-content: space-between;
+ margin-top: 20rpx;
+}
+
+.numChange {
+ flex: 1;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+}
+
+.minus,
+.add {
+ font-size: 20px;
+ border: 1rpx solid #666;
+ padding: 0 20rpx;
+}
+
+.getSum {
+ position: fixed;
+ bottom: 0;
+ left: 0;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ width: 100%;
+ height: 90rpx;
+}
+
+.getSum radio {
+ flex:1;
+ padding: 20rpx;
+}
+
+.toPay {
+ flex: 2;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: 100%;
+ background-color: var(--themeColor);
+ color: #fff;
+}
+.delivery {
+ color: #666;
+}
+.sum {
+ flex:3;
+ margin-left: 20rpx;
+}

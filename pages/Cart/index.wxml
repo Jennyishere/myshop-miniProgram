@@ -1,2 +1,39 @@
 <!--pages/Cart/index.wxml-->
-<text>pages/Cart/index.wxml</text>
+<view class="cart">
+	<!-- 添加地址 -->
+	<view class="addAddress">
+		<button type="primary" plain>添加收货地址</button>
+	</view>
+	<view class="shopCart">
+		<view class="title">购物车</view>
+		<!-- 产品列表 -->
+		<view class="goodsList">
+			<radio></radio>
+			<view class="left">
+				<image mode="widthFix" src="https://images.pexels.com/photos/1553962/pexels-photo-1553962.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"></image>
+			</view>
+			<view class="right">
+				<view class="good_name">创维（Skyworth）42X6 42英寸10核智能酷开网络平板液晶电视（黑色）</view>
+				<view class="bottom">
+					<view class="good_price"><text>￥</text>2555</view>
+					<view class="numChange">
+						<view class="minus">-</view>
+						<view class="num">2</view>
+						<view class="add">+</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!-- 底部结算 -->
+	<view class="getSum">
+		<radio>全选</radio>
+		<view class="sum">
+			<view class="total">合计：<text class=".good_price">￥14400</text></view>
+			<view class="delivery">包含运费</view>
+		</view>
+		<view class="toPay">
+			结算(3)
+		</view>
+	</view>
+</view>
