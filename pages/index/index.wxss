@@ -13,7 +13,7 @@ swiper image {
   justify-content: space-around;
 }
 .navs image {
-  width: 180rpx;
+  width: 140rpx;
 }
 .floor {
   padding: 15rpx;

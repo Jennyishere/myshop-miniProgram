@@ -33,8 +33,10 @@ let cart = wx.getStorageSync('cart')||[]
 // 找到本地的商品的index对比是否存在
 let index = cart.findIndex(v=>v.goods_id === this.goods.goods_id)
 if(index===-1) {
-  // 不存在 push进去 并把数量设置为1
+  // 不存在 push进去 并把添加数量属性，数量设置为1
   this.goods.num=1;
+  // 把选中属性加上
+  this.goods.checked=true;
 cart.push(this.goods)
 }else {
   // 存在 直接找到该商品 数量加1

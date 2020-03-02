@@ -48,15 +48,21 @@ Page({
   },
   // 获取数据的方法
   getGoodsList() {
-    // 发请求
+    // 发请求 先判断 如果没有更多数据就不再请求
+    // if(this.queryParams.pagenum >= this.totalPages) return;
     request({
       url: '/goods/search',
       data: this.queryParams
     }).then(res => {
       // console.log(res);
-      const { goods } = res.data.message
+      let { goods } = res.data.message
       const { total } = res.data.message;
       this.totalPages = Math.ceil(total / this.queryParams.pagesize);
+      // 把价格加上小数点
+      goods.forEach(v=> {
+        v.goods_price = Number(v.goods_price).toFixed(2)
+        return v;
+      })
       this.setData({
         // 把获取的拼在一起 而不是直接赋值
         goodList: [...this.data.goodList, ...goods]
@@ -96,15 +102,15 @@ Page({
    * 3 重置页码为1  发送请求重新请求数据
    */
   onPullDownRefresh: function () {
-// 重置
-this.setData({
-  goodList:[]
-})
-this.queryParams.pagenum = 1;
-// 再次请求
-this.getGoodsList()
-// 加载完收起
-wx.stopPullDownRefresh()
+    // 重置
+    this.setData({
+      goodList: []
+    })
+    this.queryParams.pagenum = 1;
+    // 再次请求
+    this.getGoodsList()
+    // 加载完收起
+    wx.stopPullDownRefresh()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -134,7 +140,7 @@ wx.stopPullDownRefresh()
 
   },
 
-  
+
 
 
 
