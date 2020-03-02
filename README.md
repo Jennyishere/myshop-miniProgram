@@ -77,3 +77,26 @@ open-type="share"
 判断本地的数据 ：
 不存在添加 两个属性 num数量 checked选中
 存在就num++
+
+**5.购物⻋⻚⾯**
+
+业务逻辑 
+
+1. 渲染购物⻋数据 
+
+2. 添加收货地址
+
+① wx.chooseAddress(Object object)
+
+② authSetting的scope.address的三种状态：
+
+true和undefined就可以添加地址了  
+false就要引导用户打开设置
+
+3. 修改商品数量 
+定义总的状态，总数，总价 
+遍历checked属性决定是否加数和状态修改，遍历时需要注意的是空数组遍历返回的可能是true
+注意 都需要两个存data和缓存
+
+4. 单选和全选功能
+  遍历商品数组里的check来决定
