@@ -5,18 +5,18 @@
 			<icon type="search"></icon>
 			<input placeholder="请输入你想要的商品" value="{{inputValue}}" bindinput="handleInput" bindblur="handleBlur" bindconfirm="handleConfirm"></input>
 		</view>
-		<view class="cancel" wx:if="{{inputValue}}">取消</view>
+		<view class="cancel" wx:if="{{inputValue}}" bindtap="handleCancel">取消</view>
 		<view class="searchResult" wx:if="{{searchResult.length}}">
-			<view wx:for="{{searchResult}}">{{item.goods_name}}</view>
+			<navigator wx:for="{{searchResult}}" wx:key="index" url="/pages/goods_detail/index?goods_id={{item.goods_id}}" >{{item.goods_name}}</navigator>
 		</view>
 	</view>
 
 	<view class="history">
 		<view class="historyHead">
 			<text>历史搜索</text>
-			<icon type="clear" size="16"></icon>
+			<icon type="clear" size="16" bindtap="handleClear"></icon>
 		</view>
-		<view class="historyContent" >
+		<view class="historyContent">
 			<text wx:for="{{history}}" wx:key="index">{{item}}</text>
 		</view>
 	</view>
