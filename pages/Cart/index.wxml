@@ -14,14 +14,14 @@
 
 		<!-- 产品列表 -->
 		<block wx:if="{{cart.length!=0}}">
-			<navigator class="goodsList" wx:for="{{cart}}" wx:key="index" url="/pages/goods_detail/index?goods_id={{item.goods_id}}" >
+			<view class="goodsList" wx:for="{{cart}}" wx:key="index">
 				<!-- 复选框绑定事件是给其父元素绑定 -->
 				<checkbox-group bindtap="handleItemCheck" data-id="{{item.goods_id}}">
 					<checkbox checked="{{item.checked}}" />
 				</checkbox-group>
-				<view class="left">
+				<navigator class="left"  url="/pages/goods_detail/index?goods_id={{item.goods_id}}" >
 					<image mode="widthFix" src="{{item.goods_small_logo}}"></image>
-				</view>
+				</navigator>
 				<view class="right">
 					<view class="good_name">{{item.goods_name}}</view>
 					<view class="bottom">
@@ -33,7 +33,7 @@
 						</view>
 					</view>
 				</view>
-			</navigator>
+			</view>
 		</block>
 		<!-- 没有产品时 -->
 		<view wx:else>

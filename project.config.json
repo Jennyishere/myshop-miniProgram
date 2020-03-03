@@ -50,8 +50,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/Cart/index",
-					"pathName": "pages/Cart/index",
+					"name": "pages/Search/index",
+					"pathName": "pages/Search/index",
 					"query": "",
 					"scene": null
 				}

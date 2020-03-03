@@ -2,14 +2,14 @@
 <view class="category">
 	<searchInput></searchInput>
 	<view class="cate">
-		<scroll-view class="leftcate" scroll-y>
+		<scroll-view class="leftcate" scroll-y enable-back-to-top="true">
 			<view wx:for="{{leftCateList}}" wx:key="index" class="menu {{currentIndex==index? 'active':''}}" bindtap="handleTap" data-index="{{index}}">{{item}}</view>
 		</scroll-view>
 		<scroll-view class="rightcate" scroll-y>
 			<view wx:for="{{rightCateList}}" wx:key="index">
 				<view class="head">/ {{item.cat_name}} /</view>
 				<view class="brand">
-					<navigator url="/pages/goods_list/index?cid={{item2.cat_id}}" class="subtitle" wx:for="{{item.children}}" wx:for-item="item2" wx:key="index">
+					<navigator url="/pages/goods_list/index?query={{item2.cat_name}}" class="subtitle" wx:for="{{item.children}}" wx:for-item="item2" wx:key="index">
 						<image src="{{item2.cat_icon}}" mode="widthFix"></image>
 						<view>{{item2.cat_name}}</view>
 					</navigator>

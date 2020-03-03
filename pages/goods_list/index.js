@@ -74,7 +74,7 @@ Page({
    */
   onLoad: function (options) {
     // console.log(options);
-    this.queryParams.cid = options.cid;
+    this.queryParams.query = options.query;
     this.getGoodsList();
   },
   /**

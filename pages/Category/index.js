@@ -26,7 +26,7 @@ Page({
     request({
       url: "/categories"
     }).then(res => {
-      console.log(res);
+      // console.log(res);
       const { message } = res.data
       // 将获取的数据存到本地
       wx.setStorageSync('cates', { time: Date.now(), data: message })
