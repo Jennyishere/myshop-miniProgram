@@ -9,7 +9,8 @@ Page({
     inputValue: '',
     searchResult:[],
     isLoading: false,
-    history:[]
+    history:[],
+    lastValue:''
   },
   handleInput(e) {
     this.setData({
@@ -27,7 +28,7 @@ Page({
       this.setData({
         searchResult:[]
       })
-    }, 500);
+    }, 100);
   },
   // 处理回车事件 ： 1将搜索词存到本地 去重 2.跳转搜索列表
   handleConfirm(e){
@@ -63,7 +64,8 @@ handleClear() {
     // 请求前先确定isLoading是否为false，为false就请求 并把它打开
     if(this.data.isLoading===false) {
       this.setData({
-        isLoading:true
+        isLoading:true,
+        lastValue: this.data.inputValue
       })
       request({
         url: '/goods/qsearch',
@@ -77,6 +79,9 @@ handleClear() {
           isLoading:false,
           searchResult:res.data.message
         })
+        if(this.data.lastValue!==this.data.inputValue) {
+          this.getResult();
+        }
       })
     }
     

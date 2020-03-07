@@ -48,6 +48,12 @@ Page({
     const address = wx.getStorageSync('address')
     // 获取购物车列表
     const cart = wx.getStorageSync('cart') || []
+    if(cart.length > 0) {
+      wx.setTabBarBadge({
+        index: 2,
+        text: cart.length + "",
+      })
+     }
     // 空数组的every返回的是true
     // const allChecked = cart.length? cart.every(v=>v.checked):false;
     this.setData({ address })
@@ -104,20 +110,24 @@ Page({
   },
   // 处理+-商品数量
   handleItemNum(e) {
-    const {id, operation} = e.currentTarget.dataset;
+    const { id, operation } = e.currentTarget.dataset;
     // 根据id找到该商品
-    let {cart} = this.data
-    let index = cart.findIndex(v=>v.goods_id === id)
-    if(cart[index].num==1 && operation==-1) {
+    let { cart } = this.data
+    let index = cart.findIndex(v => v.goods_id === id)
+    if (cart[index].num == 1 && operation == -1) {
       wx.showModal({
         title: '提示',
         content: '您确定要删除这一个商品吗',
-        success: (res)=>{
+        success: (res) => {
           // 注意要改成箭头函数 才能this
           if (res.confirm) {
-          //  删除
-          cart.splice(index,1)
-          this.setCart(cart)
+            //  删除
+            cart.splice(index, 1)
+            this.setCart(cart)
+            wx.removeTabBarBadge({
+              index: 2,
+              text: cart.length + "",
+            })
           } else if (res.cancel) {
             console.log('用户点击取消')
           }
@@ -128,28 +138,30 @@ Page({
     cart[index].num += operation;
     // 设置回去
     this.setCart(cart)
+
+
   },
   // 处理点击结算
   handlePay() {
-const{address,totalNum} = this.data;
-if(!address.userName) {
-  wx.showToast({
-    title: '请添加地址',
-    icon:'none'
-  })
-  return;
-}
-// 选购商品
-if(totalNum===0) {
-  wx.showToast({
-    title: '您还没选购商品',
-    icon:'none'
-  })
-  return;
-}
-// 可以跳转
-wx.navigateTo({
-  url: '/pages/pay/index',
-})
+    const { address, totalNum } = this.data;
+    if (!address.userName) {
+      wx.showToast({
+        title: '请添加地址',
+        icon: 'none'
+      })
+      return;
+    }
+    // 选购商品
+    if (totalNum === 0) {
+      wx.showToast({
+        title: '您还没选购商品',
+        icon: 'none'
+      })
+      return;
+    }
+    // 可以跳转
+    wx.navigateTo({
+      url: '/pages/pay/index',
+    })
   }
 })

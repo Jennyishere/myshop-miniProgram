@@ -34,7 +34,7 @@
  height: 50vh;
  overflow: auto;
 }
-.searchResult > view {
+.searchResult > navigator {
  line-height: 2;
  overflow: hidden;
  /* -webkit-box-orient: vertical;

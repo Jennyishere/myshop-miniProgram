@@ -55,7 +55,7 @@ wx.showToast({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 获取当前的商品数据
+        // 获取当前的商品数据
     const { goods_id } = options
     request({
       url: '/goods/detail',
